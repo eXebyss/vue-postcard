@@ -4,6 +4,7 @@ import { useSanityClient } from 'vue-sanity';
 import PostcardGreeting from './components/PostcardGreeting.vue';
 import PostcardText from './components/PostcardText.vue';
 import PostcardTitles from './components/PostcardTitles.vue';
+import SecretLoot from './components/SecretLoot.vue';
 
 useSanityClient({
     projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
@@ -18,6 +19,7 @@ useSanityClient({
         <PostcardGreeting />
         <PostcardText />
         <PostcardTitles />
+        <SecretLoot />
     </div>
 </template>
 

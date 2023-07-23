@@ -37,5 +37,11 @@ export default {
       type: 'array',
       of: [{type: 'avatar'}],
     },
+    {
+      name: 'secretLoot',
+      title: 'Secret Loot',
+      type: 'array',
+      of: [{type: 'secretLootImage'}],
+    },
   ],
 }
