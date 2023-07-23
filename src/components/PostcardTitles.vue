@@ -4,13 +4,13 @@ import { onMounted, onBeforeUnmount, ref, watch } from 'vue';
 import { useSanityFetcher } from 'vue-sanity';
 import { SanityBlocks } from 'sanity-blocks-vue-component';
 // @ts-ignore
-import imageUrl from '@/utils'
+import imageUrl from '@/utils';
 
 let observer: IntersectionObserver | null = null;
 
 const postcardAuthors = ref(null);
 const postcardYear = ref(null);
-const postcardAvatars = ref(null)
+const postcardAvatars = ref(null);
 const show = ref(false);
 
 const { data } = useSanityFetcher('*[_type == "postcard"][0]{authors, year, avatars}');
@@ -37,8 +37,7 @@ watch(data, async (requestedData) => {
     const { authors, year, avatars } = requestedData;
     postcardAuthors.value = authors;
     postcardYear.value = year;
-    postcardAvatars.value = avatars
-
+    postcardAvatars.value = avatars;
 });
 </script>
 
@@ -54,7 +53,10 @@ watch(data, async (requestedData) => {
                         <div className="hero-content text-center">
                             <div className="max-w-xl">
                                 <SanityBlocks :blocks="postcardAuthors" />
-                                <div v-if="postcardAvatars" class="my-4 flex gap-x-4 justify-center">
+                                <div
+                                    v-if="postcardAvatars"
+                                    class="my-4 flex gap-x-4 justify-center"
+                                >
                                     <div v-for="avatar in postcardAvatars" :key="avatar">
                                         <div className="avatar">
                                             <div className="w-24 mask mask-squircle">
@@ -63,7 +65,9 @@ watch(data, async (requestedData) => {
                                         </div>
                                     </div>
                                 </div>
-                                <p class="text-xl my-4 italic font-bold text-primary text-center">{{ postcardYear }}</p>
+                                <p class="text-xl my-4 italic font-bold text-primary text-center">
+                                    {{ postcardYear }}
+                                </p>
                             </div>
                         </div>
                     </div>

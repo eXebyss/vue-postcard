@@ -28,7 +28,7 @@ function showMoreConfetti() {
 }
 
 showConfetti();
-showConfettiWithInterval()
+showConfettiWithInterval();
 
 const { data } = useSanityFetcher('*[_type == "postcard"][0]');
 const title = ref(null);
@@ -48,7 +48,11 @@ watch(data, async (requestedData) => {
             <div class="hero-content text-center">
                 <div v-if="title" id="sanityTitleContainer" class="max-w-md title">
                     <SanityBlocks :blocks="title" />
-                    <button type="button" class="btn btn-primary text-base" @click="showMoreConfetti">
+                    <button
+                        type="button"
+                        class="btn btn-primary text-base"
+                        @click="showMoreConfetti"
+                    >
                         More 🎉
                     </button>
                 </div>
